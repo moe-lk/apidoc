@@ -20,7 +20,7 @@ tags:
     externalDocs:
       description: Find out more about our project on git
       url: 'https://github.com/LankaSoftwareFoundation/MoE-SLEAS-HRM'
-paths:
+# paths:
   # /employee/createWithArray:
   #   post:
   #     tags:
