@@ -4,7 +4,7 @@
     "importedSpec": "swagger.yml",
     "name": "MoE HRM",
     "repo": ":moe-lk/apidoc",
-    "splitSpec": false,
+    "splitSpec": true,
     "samples": true,
     "installSwaggerUI": true
   }
