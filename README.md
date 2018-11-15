@@ -16,12 +16,12 @@
 
 ## Links
 
-- Documentation(ReDoc): https://:moe-lk.github.io/apidoc/
-- SwaggerUI: https://:moe-lk.github.io/apidoc/swagger-ui/
+- Documentation(ReDoc): https://moe-lk.github.io/apidoc/
+- SwaggerUI: https://moe-lk.github.io/apidoc/swagger-ui/
 - Look full spec:
-    + JSON https://:moe-lk.github.io/apidoc/swagger.json
-    + YAML https://:moe-lk.github.io/apidoc/swagger.yaml
-- Preview spec version for branch `[branch]`: https://:moe-lk.github.io/apidoc/preview/[branch]
+    + JSON https://moe-lk.github.io/apidoc/swagger.json
+    + YAML https://moe-lk.github.io/apidoc/swagger.yaml
+- Preview spec version for branch `[branch]`: https://moe-lk.github.io/apidoc/preview/[branch]
 
 **Warning:** All above links are updated only after Travis CI finishes deployment
 
