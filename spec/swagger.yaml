@@ -5,8 +5,8 @@ info:
   description: This is the CS-HRM api server. Here you find all APIs related to the system. The api can be find on github
   contact:
     email: nizarm@opensource.lk
-host: localhost
-basePath: /v2
+host: hrm.nemismoe.lgcc.gov.lk
+basePath: /moe/1.0.0
 securityDefinitions: {}
 schemes:
 - https
@@ -15,7 +15,7 @@ consumes:
 produces:
 - application/json
 paths:
-  /employee:
+  /employees:
     post:
       description: This can only be done by the logged in user with permission for create employees.
       summary: CreateanEmployee
@@ -34,21 +34,22 @@ paths:
       responses:
         200:
           description: successful operation
+  /employees/{id}:
     get:
-      description: This can only be done by the logged in user with permission for Get User data employees.
-      summary: GetanEmployee
+      description: list of users with given page as pagination
+      summary: listofuserswithgivenpageaspagination
       tags:
       - Employee
       operationId: EmployeeGet
       produces:
       - application/json
       parameters:
-      - name: Id
-        in: query
-        required: false
+      - name: id
+        in: path
+        required: true
         default: 1
         type: integer
-        description: ''
+        description: The page id should be provided
       responses:
         200:
           description: successful operation
@@ -63,27 +64,6 @@ paths:
       tags:
       - Employee
       operationId: EmployeeCreateWithArrayPost
-      produces:
-      - application/json
-      parameters:
-      - name: body
-        in: body
-        required: true
-        description: List of user object
-        schema:
-          type: array
-          items:
-            $ref: '#/definitions/User'
-      responses:
-        200:
-          description: successful operation
-  /employee/createWithList:
-    post:
-      description: Creates list of Employees with given input array
-      summary: CreateslistofEmployeeswithgiveninputarray1
-      tags:
-      - Employee
-      operationId: EmployeeCreateWithListPost
       produces:
       - application/json
       parameters:
