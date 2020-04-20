@@ -1,4 +1,4 @@
-# MoE HRM OpenAPI Specification
+# MoE SIS OpenAPI Specification
 [![Build Status](https://travis-ci.org/:moe-lk/apidoc.svg?branch=master)](https://travis-ci.org/:moe-lk/apidoc)
 
 ## Steps to finish

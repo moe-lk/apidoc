@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "This is the CS-HRM api server. Here you find all APIs related to the system. The api can be find on github",
+    "description": "This is the MoE api server. Here you find all APIs related to the system. The api can be find on github",
     "version": "1.0.0",
     "title": "CS-HRM",
     "termsOfService": "",
