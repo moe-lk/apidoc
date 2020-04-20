@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
   version: '1.0.0'
-  title: CS-HRM
-  description: This is the CS-HRM api server. Here you find all APIs related to the system. The api can be find on github
+  title: MoE
+  description: This is the MoE api server. Here you find all APIs related to the system. The api can be find on github
   contact:
     email: nizarm@opensource.lk
 host: localhost
