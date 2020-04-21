@@ -8,6 +8,7 @@ deploy:
     on:
       branch: master
   - skip_cleanup: true
+    github_token: $GH_TOKEN
     provider: script
     script: npm run deploy-branch
     on:
