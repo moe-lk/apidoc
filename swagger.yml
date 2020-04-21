@@ -9,28 +9,28 @@ host: localhost
 basePath: /v2
 securityDefinitions: {}
 schemes:
-- https
+  - https
 consumes:
-- application/json
+  - application/json
 produces:
-- application/json
+  - application/json
 paths:
   /employee:
     post:
       description: This can only be done by the logged in user with permission for create employees.
       summary: CreateanEmployee
       tags:
-      - Employee
+        - Employee
       operationId: EmployeePost
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: body
-        in: body
-        required: true
-        description: Created user object
-        schema:
-          $ref: '#/definitions/User'
+        - name: body
+          in: body
+          required: true
+          description: Created user object
+          schema:
+            $ref: '#/definitions/User'
       responses:
         200:
           description: successful operation
@@ -38,17 +38,17 @@ paths:
       description: This can only be done by the logged in user with permission for Get User data employees.
       summary: GetanEmployee
       tags:
-      - Employee
+        - Employee
       operationId: EmployeeGet
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: Id
-        in: query
-        required: false
-        default: 1
-        type: string
-        description: ''
+        - name: Id
+          in: query
+          required: false
+          default: 1
+          type: string
+          description: ''
       responses:
         200:
           description: successful operation
@@ -61,19 +61,19 @@ paths:
       description: Creates list of Employees with given input array
       summary: CreateslistofEmployeeswithgiveninputarray
       tags:
-      - Employee
+        - Employee
       operationId: EmployeeCreateWithArrayPost
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: body
-        in: body
-        required: true
-        description: List of user object
-        schema:
-          type: array
-          items:
-            $ref: '#/definitions/User'
+        - name: body
+          in: body
+          required: true
+          description: List of user object
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
       responses:
         200:
           description: successful operation
@@ -82,19 +82,19 @@ paths:
       description: Creates list of Employees with given input array
       summary: CreateslistofEmployeeswithgiveninputarray1
       tags:
-      - Employee
+        - Employee
       operationId: EmployeeCreateWithListPost
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: body
-        in: body
-        required: true
-        description: List of user object
-        schema:
-          type: array
-          items:
-            $ref: '#/definitions/User'
+        - name: body
+          in: body
+          required: true
+          description: List of user object
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
       responses:
         200:
           description: successful operation
@@ -103,17 +103,17 @@ paths:
       description: list of users with given page as pagination
       summary: listofuserswithgivenpageaspagination
       tags:
-      - Employee
+        - Employee
       operationId: EmployeeListByPageIdGet
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: pageId
-        in: path
-        required: true
-        default: 1
-        type: string
-        description: The page id should be provided
+        - name: pageId
+          in: path
+          required: true
+          default: 1
+          type: string
+          description: The page id should be provided
       responses:
         200:
           description: successful operation
@@ -126,29 +126,29 @@ paths:
       description: uploads Employee related files
       summary: uploadsEmployeerelatedfiles
       tags:
-      - Employee
+        - Employee
       operationId: EmployeeEmployeeAttachmentsPost
       produces:
-      - application/json
+        - application/json
       consumes:
-      - multipart/form-data
+        - multipart/form-data
       parameters:
-      - name: additionalMetadata
-        in: formData
-        required: false
-        type: string
-        description: Additional data to pass to server
-      - name: file
-        in: formData
-        required: false
-        type: file
-        format: file
-        description: file to upload
-      - name: userId
-        in: formData
-        required: false
-        type: string
-        description: Employee id
+        - name: additionalMetadata
+          in: formData
+          required: false
+          type: string
+          description: Additional data to pass to server
+        - name: file
+          in: formData
+          required: false
+          type: file
+          format: file
+          description: file to upload
+        - name: userId
+          in: formData
+          required: false
+          type: string
+          description: Employee id
       responses:
         200:
           description: successful operation
@@ -158,10 +158,10 @@ paths:
       description: Read Employee related files
       summary: ReadEmployeerelatedfiles
       tags:
-      - Employee
+        - Employee
       operationId: EmployeeEmployeeAttachmentsGet
       produces:
-      - application/json
+        - application/json
       parameters: []
       responses:
         200:
@@ -172,29 +172,29 @@ paths:
       description: Update Employee related files
       summary: UpdateEmployeerelatedfiles
       tags:
-      - Employee
+        - Employee
       operationId: EmployeeEmployeeAttachmentsPut
       produces:
-      - application/json
+        - application/json
       consumes:
-      - multipart/form-data
+        - multipart/form-data
       parameters:
-      - name: additionalMetadata
-        in: formData
-        required: false
-        type: string
-        description: Additional data to pass to server
-      - name: file
-        in: formData
-        required: false
-        type: file
-        format: file
-        description: file to upload
-      - name: userId
-        in: formData
-        required: false
-        type: string
-        description: Employee id
+        - name: additionalMetadata
+          in: formData
+          required: false
+          type: string
+          description: Additional data to pass to server
+        - name: file
+          in: formData
+          required: false
+          type: file
+          format: file
+          description: file to upload
+        - name: userId
+          in: formData
+          required: false
+          type: string
+          description: Employee id
       responses:
         200:
           description: successful operation
@@ -204,18 +204,18 @@ paths:
       description: Update Employee related files
       summary: UpdateEmployeerelatedfiles
       tags:
-      - Employee
+        - Employee
       operationId: EmployeeEmployeeAttachmentsDelete
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: fileInfo
-        in: query
-        required: false
-        type: array
-        items:
-          type: string
-        description: ''
+        - name: fileInfo
+          in: query
+          required: false
+          type: array
+          items:
+            type: string
+          description: ''
       responses:
         200:
           description: successful operation
@@ -226,17 +226,17 @@ paths:
       description: Activate and deactivate an Employee
       summary: Statusupdate
       tags:
-      - Employee
+        - Employee
       operationId: EmployeeStatusUpdatePost
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: body
-        in: body
-        required: true
-        description: Status update user object
-        schema:
-          $ref: '#/definitions/EmployeeStatusUpdateRequest'
+        - name: body
+          in: body
+          required: true
+          description: Status update user object
+          schema:
+            $ref: '#/definitions/EmployeeStatusUpdateRequest'
       responses:
         200:
           description: successful operation
@@ -245,17 +245,17 @@ paths:
       description: Activate and deactivate an Employee
       summary: Statusupdate1
       tags:
-      - Employee
+        - Employee
       operationId: EmployeeApproveRejectPost
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: body
-        in: body
-        required: true
-        description: Status update user object
-        schema:
-          $ref: '#/definitions/EmployeeApproveRejectRequest'
+        - name: body
+          in: body
+          required: true
+          description: Status update user object
+          schema:
+            $ref: '#/definitions/EmployeeApproveRejectRequest'
       responses:
         200:
           description: successful operation
@@ -264,17 +264,17 @@ paths:
       description: Update the Employee ggeneral service informations
       summary: UpdategeneralServiceinfo
       tags:
-      - Employee
+        - Employee
       operationId: EmployeeGeneralServicePut
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: body
-        in: body
-        required: true
-        description: Updated General Service object
-        schema:
-          $ref: '#/definitions/General_Service'
+        - name: body
+          in: body
+          required: true
+          description: Updated General Service object
+          schema:
+            $ref: '#/definitions/General_Service'
       responses:
         200:
           description: ''
@@ -289,17 +289,17 @@ paths:
       description: This can only be done by anyone with IDM-Gov
       summary: Registerauser
       tags:
-      - user
+        - user
       operationId: UserRegisterPost
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: body
-        in: body
-        required: true
-        description: Updated user object
-        schema:
-          $ref: '#/definitions/User'
+        - name: body
+          in: body
+          required: true
+          description: Updated user object
+          schema:
+            $ref: '#/definitions/User'
       responses:
         200:
           description: ''
@@ -314,10 +314,10 @@ paths:
       description: Get user by user name
       summary: Getuserbyusername
       tags:
-      - user
+        - user
       operationId: UserGet
       produces:
-      - application/json
+        - application/json
       parameters: []
       responses:
         200:
@@ -334,17 +334,17 @@ paths:
       description: This can only be done by the logged in user.
       summary: Updateduser
       tags:
-      - user
+        - user
       operationId: UserPut
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: body
-        in: body
-        required: true
-        description: Updated user object
-        schema:
-          $ref: '#/definitions/User'
+        - name: body
+          in: body
+          required: true
+          description: Updated user object
+          schema:
+            $ref: '#/definitions/User'
       responses:
         200:
           description: ''
@@ -358,10 +358,10 @@ paths:
       description: This can only be done by the logged in user.
       summary: Deleteuser
       tags:
-      - user
+        - user
       operationId: UserDelete
       produces:
-      - application/json
+        - application/json
       parameters: []
       responses:
         200:
@@ -377,23 +377,23 @@ paths:
       description: Logs user into the system
       summary: Logsuserintothesystem
       tags:
-      - user
+        - user
       operationId: UserLoginPost
       produces:
-      - application/json
+        - application/json
       consumes:
-      - application/x-www-form-urlencoded
+        - application/x-www-form-urlencoded
       parameters:
-      - name: username
-        in: formData
-        required: true
-        type: string
-        description: The user name for login
-      - name: password
-        in: formData
-        required: true
-        type: string
-        description: The password for login in clear text
+        - name: username
+          in: formData
+          required: true
+          type: string
+          description: The user name for login
+        - name: password
+          in: formData
+          required: true
+          type: string
+          description: The password for login in clear text
       responses:
         200:
           description: successful operation
@@ -407,10 +407,10 @@ paths:
       description: Logs out current logged in user session
       summary: Logsoutcurrentloggedinusersession
       tags:
-      - user
+        - user
       operationId: UserLogoutGet
       produces:
-      - application/json
+        - application/json
       parameters: []
       responses:
         200:
@@ -420,43 +420,65 @@ paths:
       description: uploads an image
       summary: uploadsanimage
       tags:
-      - user
+        - user
       operationId: UserUploadpicByUserIdPost
       produces:
-      - application/json
+        - application/json
       consumes:
-      - multipart/form-data
+        - multipart/form-data
       parameters:
-      - name: userId
-        in: path
-        required: true
-        type: integer
-        format: int64
-        exclusiveMaximum: false
-        exclusiveMinimum: false
-        description: ID of user to update
-      - name: additionalMetadata
-        in: formData
-        required: false
-        type: string
-        description: Additional data to pass to server
-      - name: file
-        in: formData
-        required: false
-        type: file
-        format: file
-        description: file to upload
-      - name: userId
-        in: formData
-        required: false
-        type: string
-        description: Employee id
+        - name: userId
+          in: path
+          required: true
+          type: integer
+          format: int64
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          description: ID of user to update
+        - name: additionalMetadata
+          in: formData
+          required: false
+          type: string
+          description: Additional data to pass to server
+        - name: file
+          in: formData
+          required: false
+          type: file
+          format: file
+          description: file to upload
+        - name: userId
+          in: formData
+          required: false
+          type: string
+          description: Employee id
       responses:
         200:
           description: successful operation
           schema:
             $ref: '#/definitions/ApiResponse'
 definitions:
+  Student:
+    title: Student
+    type: object
+    properties:
+      Personal_Details:
+        $ref: '#/definitions/Student_user'
+      Father:
+        $ref: '#/definitions/Guardian_Details'
+      Mother:
+        $ref: '#/definitions/Guardian_Details'
+      Gardian:
+        $ref: '#/definitions/Guardian_Details'
+  Student_user:
+    title: Student_User
+    type: object
+    properties:
+      full_name:
+        type: string
+      dob:
+        type: string
+      digital_id:
+        type: string
   User:
     title: User
     type: object
@@ -477,6 +499,26 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Qualifications'
+  Guardian_Details:
+    title: Guardian
+    type: object
+    properties:
+      id:
+        type: string
+      full_name:
+        type: string
+      address:
+        type: string
+      nic:
+        type: string
+      digital_id:
+        type: string
+      relationaship:
+        type: string
+        enum:
+          - father
+          - mother
+          - guardian
   Account_Details:
     title: Account_Details
     type: object
@@ -566,15 +608,15 @@ definitions:
       approved:
         $ref: '#/definitions/Approved'
     required:
-    - NIC
-    - title
-    - f_name
-    - l_name
-    - in_name
-    - dob
-    - ethinicity
-    - gender
-    - civil_status
+      - NIC
+      - title
+      - f_name
+      - l_name
+      - in_name
+      - dob
+      - ethinicity
+      - gender
+      - civil_status
   Contact_Details:
     title: Contact_Details
     type: object
@@ -608,12 +650,12 @@ definitions:
       email:
         type: string
     required:
-    - address_type
-    - address_1
-    - address_2
-    - postal_code
-    - mobile
-    - email
+      - address_type
+      - address_1
+      - address_2
+      - postal_code
+      - mobile
+      - email
   General_Service:
     title: General_Service
     type: object
@@ -697,10 +739,10 @@ definitions:
         type: string
         format: date
     required:
-    - date_join
-    - way_join
-    - cadre
-    - grade_join
+      - date_join
+      - way_join
+      - cadre
+      - grade_join
   Current_Service:
     title: Current_Service
     type: object
@@ -762,7 +804,7 @@ definitions:
         type: integer
         format: int32
     required:
-    - service_mode
+      - service_mode
   Qualifications:
     title: Qualifications
     type: object
@@ -796,47 +838,47 @@ definitions:
     type: integer
     format: int32
     enum:
-    - 1
-    - 0
+      - 1
+      - 0
   AddressType:
     title: AddressType
     example: Permanant
     type: string
     enum:
-    - Permanant
-    - Temperary
+      - Permanant
+      - Temperary
   Approved:
     title: Approved
     example: 0
     type: integer
     format: int32
     enum:
-    - 0
-    - 1
+      - 0
+      - 1
   Cadre:
     title: Cadre
     example: General Cadre
     type: string
     enum:
-    - General Cadre
-    - Special Cadre
-    - Not Specified
+      - General Cadre
+      - Special Cadre
+      - Not Specified
   CivilStatus:
     title: CivilStatus
     example: Married
     type: string
     enum:
-    - Married
-    - Single
-    - Divorced
-    - Widowed
+      - Married
+      - Single
+      - Divorced
+      - Widowed
   Confirm:
     title: Confirm
     example: Yes
     type: string
     enum:
-    - Yes
-    - No
+      - Yes
+      - No
   DesignationId:
     title: DesignationId
     example: >-
@@ -849,134 +891,134 @@ definitions:
       }
     type: string
     enum:
-    - >-
-      {
+      - >-
+        {
 
-        "value": 1,
+          "value": 1,
 
-        "description": "Additional Secretary of the Ministry of Education"
+          "description": "Additional Secretary of the Ministry of Education"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 2,
+          "value": 2,
 
-        "description": "Commissioner General of Examinations"
+          "description": "Commissioner General of Examinations"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 3,
+          "value": 3,
 
-        "description": "Commissioner General of Educational Publications"
+          "description": "Commissioner General of Educational Publications"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 4,
+          "value": 4,
 
-        "description": "Chief Commissioner (Teacher Education)"
+          "description": "Chief Commissioner (Teacher Education)"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 5,
+          "value": 5,
 
-        "description": "Director of Education"
+          "description": "Director of Education"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 6,
+          "value": 6,
 
-        "description": "Deputy Director of Education"
+          "description": "Deputy Director of Education"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 7,
+          "value": 7,
 
-        "description": "Assistant Director of Education"
+          "description": "Assistant Director of Education"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 8,
+          "value": 8,
 
-        "description": "Additional Director of Education"
+          "description": "Additional Director of Education"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 9,
+          "value": 9,
 
-        "description": "Commissioner of Examinations"
+          "description": "Commissioner of Examinations"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 10,
+          "value": 10,
 
-        "description": "Deputy Commissioner of Examinations"
+          "description": "Deputy Commissioner of Examinations"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 11,
+          "value": 11,
 
-        "description": "Assistant Commissioner of Examinations"
+          "description": "Assistant Commissioner of Examinations"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 12,
+          "value": 12,
 
-        "description": "Commissioner of Educational Publications"
+          "description": "Commissioner of Educational Publications"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 13,
+          "value": 13,
 
-        "description": "Commissioner of Educational Publications"
+          "description": "Commissioner of Educational Publications"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 14,
+          "value": 14,
 
-        "description": "Assistant Commissioner of Educational Publications"
+          "description": "Assistant Commissioner of Educational Publications"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 15,
+          "value": 15,
 
-        "description": "Principal"
+          "description": "Principal"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 16,
+          "value": 16,
 
-        "description": "Deputy Principal"
+          "description": "Deputy Principal"
 
-      }
+        }
   EmployeeApproveRejectRequest:
     title: EmployeeApproveRejectRequest
     type: object
@@ -1000,20 +1042,20 @@ definitions:
     example: Sinhala
     type: string
     enum:
-    - Sinhala
-    - Sri Lankan Tamil
-    - Indian Tamil
-    - Muslim
-    - Burger
-    - Malay
-    - Other
+      - Sinhala
+      - Sri Lankan Tamil
+      - Indian Tamil
+      - Muslim
+      - Burger
+      - Malay
+      - Other
   FAppointType:
     title: FAppointType
     example: Permanant
     type: string
     enum:
-    - Permanant
-    - Temperary
+      - Permanant
+      - Temperary
   fileInfo:
     title: fileInfo
     type: object
@@ -1029,34 +1071,34 @@ definitions:
     example: Male
     type: string
     enum:
-    - Male
-    - Female
+      - Male
+      - Female
   Grade:
     title: Grade
     example: Special
     type: string
     enum:
-    - Special
-    - Grade I
-    - Grade II
-    - Grade III
+      - Special
+      - Grade I
+      - Grade II
+      - Grade III
   GradeJoin:
     title: GradeJoin
     example: Special
     type: string
     enum:
-    - Special
-    - Grade I
-    - Grade II
-    - Grade III
+      - Special
+      - Grade I
+      - Grade II
+      - Grade III
   Medium:
     title: Medium
     example: Sinhala
     type: string
     enum:
-    - Sinhala
-    - Tamil
-    - English
+      - Sinhala
+      - Tamil
+      - English
   QualificationId:
     title: QualificationId
     example: >-
@@ -1069,38 +1111,38 @@ definitions:
       }
     type: string
     enum:
-    - >-
-      {
+      - >-
+        {
 
-        "value": 1,
+          "value": 1,
 
-        "description": "G.C.E. O/L English"
+          "description": "G.C.E. O/L English"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 2,
+          "value": 2,
 
-        "description": "G.C.E. O/L Tamil"
+          "description": "G.C.E. O/L Tamil"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 3,
+          "value": 3,
 
-        "description": "Diploma"
+          "description": "Diploma"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 4,
+          "value": 4,
 
-        "description": "Degree"
+          "description": "Degree"
 
-      }
+        }
   QualificationTypeId:
     title: QualificationTypeId
     example: >-
@@ -1113,91 +1155,84 @@ definitions:
       }
     type: string
     enum:
-    - >-
-      {
+      - >-
+        {
 
-        "value": 1,
+          "value": 1,
 
-        "description": "Academic"
+          "description": "Academic"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 2,
+          "value": 2,
 
-        "description": "Professional"
+          "description": "Professional"
 
-      }
+        }
   ServiceMode:
     title: ServiceMode
     example: First appointment
     type: string
     enum:
-    - First appointment
-    - Promotion
-    - Transfer
-    - Promotion / Transfer
-    - Attachment
-    - Secondment
-    - Releasement
-    - Acting Duty
-    - Performing Duty
-    - Placement
+      - First appointment
+      - Promotion
+      - Transfer
+      - Promotion / Transfer
+      - Attachment
+      - Secondment
+      - Releasement
+      - Acting Duty
+      - Performing Duty
+      - Placement
   ServiceSector:
     title: ServiceSector
     example: sleas
     type: string
     enum:
-    - sleas
-    - sltes
-    - slps
-    - slts
-    - cs
-    - ncs
+      - sleas
+      - sltes
+      - slps
+      - slts
+      - cs
+      - ncs
   ServiceStatus:
     title: ServiceStatus
     example: active
     type: string
     enum:
-    - active
-    - inactive
-  ServiceStatus1:
-    title: ServiceStatus1
-    example: Active
-    type: string
-    enum:
-    - Active
-    - Inactive
+      - active
+      - inactive
   Status:
     title: Status
     example: Active
     type: string
     enum:
-    - Active
-    - Inactive
+      - Active
+      - Inactive
   Title:
     title: Title
     example: Rev
     type: string
     enum:
-    - Rev
-    - Mr
-    - Mrs
-    - Rev. Dr.
-    - Dr
-    - Dr. (Ms)
-    - Dr. (Mrs)
+      - Rev
+      - Mr
+      - Mrs
+      - Rev. Dr.
+      - Dr
+      - Dr. (Ms)
+      - Dr. (Mrs)
   WayJoin:
     title: WayJoin
     description: Way of join to MoE
     example: Open
     type: string
     enum:
-    - Open
-    - Limited
-    - Merit
-    - Super Numeral (PVC)
+      - Open
+      - Limited
+      - Merit
+      - Super Numeral (PVC)
   WorkBranchId:
     title: WorkBranchId
     example: >-
@@ -1210,14 +1245,14 @@ definitions:
       }
     type: string
     enum:
-    - >-
-      {
+      - >-
+        {
 
-        "value": 1,
+          "value": 1,
 
-        "description": "National Operation Room"
+          "description": "National Operation Room"
 
-      }
+        }
   WorkDivisionId:
     title: WorkDivisionId
     example: >-
@@ -1230,142 +1265,142 @@ definitions:
       }
     type: string
     enum:
-    - >-
-      {
+      - >-
+        {
 
-        "value": 1,
+          "value": 1,
 
-        "description": "Educational Quality Development"
+          "description": "Educational Quality Development"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 2,
+          "value": 2,
 
-        "description": "Policy Planning & Performance Review"
+          "description": "Policy Planning & Performance Review"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 3,
+          "value": 3,
 
-        "description": "Education Services Establishment"
+          "description": "Education Services Establishment"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 4,
+          "value": 4,
 
-        "description": "Procurement & Construction"
+          "description": "Procurement & Construction"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 5,
+          "value": 5,
 
-        "description": "School Affairs"
+          "description": "School Affairs"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 6,
+          "value": 6,
 
-        "description": "Administration and Finance"
+          "description": "Administration and Finance"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 7,
+          "value": 7,
 
-        "description": "Languages, Humanities & Social Sciences"
+          "description": "Languages, Humanities & Social Sciences"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 8,
+          "value": 8,
 
-        "description": "Science & Technology"
+          "description": "Science & Technology"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 9,
+          "value": 9,
 
-        "description": "Education Leadership, Development Management"
+          "description": "Education Leadership, Development Management"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 10,
+          "value": 10,
 
-        "description": "Alternative Education & Teacher Education"
+          "description": "Alternative Education & Teacher Education"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 11,
+          "value": 11,
 
-        "description": "Administration, Finance & Support Services"
+          "description": "Administration, Finance & Support Services"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 12,
+          "value": 12,
 
-        "description": "Production & Distribution"
+          "description": "Production & Distribution"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 12,
+          "value": 12,
 
-        "description": "Development"
+          "description": "Development"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 14,
+          "value": 14,
 
-        "description": "School Examination Testing Service"
+          "description": "School Examination Testing Service"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 15,
+          "value": 15,
 
-        "description": "Agency Examination Testing Service"
+          "description": "Agency Examination Testing Service"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 16,
+          "value": 16,
 
-        "description": "Orientation Programme"
+          "description": "Orientation Programme"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 17,
+          "value": 17,
 
-        "description": "Education Services Establishment"
+          "description": "Education Services Establishment"
 
-      }
+        }
   WorkPlaceId:
     title: WorkPlaceId
     example: >-
@@ -1378,154 +1413,154 @@ definitions:
       }
     type: string
     enum:
-    - >-
-      {
+      - >-
+        {
 
-        "value": 1,
+          "value": 1,
 
-        "description": "Ministry of Education"
+          "description": "Ministry of Education"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 2,
+          "value": 2,
 
-        "description": "Department of Examinations"
+          "description": "Department of Examinations"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 3,
+          "value": 3,
 
-        "description": "Department of Education Publication"
+          "description": "Department of Education Publication"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 4,
+          "value": 4,
 
-        "description": "National Institute of Education"
+          "description": "National Institute of Education"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 5,
+          "value": 5,
 
-        "description": "Provincial Department of Education"
+          "description": "Provincial Department of Education"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 6,
+          "value": 6,
 
-        "description": "Provincial Ministry of Education"
+          "description": "Provincial Ministry of Education"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 7,
+          "value": 7,
 
-        "description": "Zonal Education Office"
+          "description": "Zonal Education Office"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 8,
+          "value": 8,
 
-        "description": "Divisional Education Office"
+          "description": "Divisional Education Office"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 9,
+          "value": 9,
 
-        "description": "National College of Education"
+          "description": "National College of Education"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 10,
+          "value": 10,
 
-        "description": "Teacher Training College"
+          "description": "Teacher Training College"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 11,
+          "value": 11,
 
-        "description": "Teacher Centers"
+          "description": "Teacher Centers"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 12,
+          "value": 12,
 
-        "description": "Provincial ICT Education Centre (PICTEC)"
+          "description": "Provincial ICT Education Centre (PICTEC)"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 13,
+          "value": 13,
 
-        "description": "Zonal ICT Education Centre (ZICTEC/CRC)"
+          "description": "Zonal ICT Education Centre (ZICTEC/CRC)"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 14,
+          "value": 14,
 
-        "description": "Education Resource Centre"
+          "description": "Education Resource Centre"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 15,
+          "value": 15,
 
-        "description": "Provincial Education Development Center"
+          "description": "Provincial Education Development Center"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 16,
+          "value": 16,
 
-        "description": "National School"
+          "description": "National School"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 17,
+          "value": 17,
 
-        "description": "Provincial School"
+          "description": "Provincial School"
 
-      }
-    - >-
-      {
+        }
+      - >-
+        {
 
-        "value": 18,
+          "value": 18,
 
-        "description": "Provinces"
+          "description": "Provinces"
 
-      }
+        }
 tags:
-- name: Employee
-  description: Operations on employees in the system
-- name: User
-  description: User related operations in the System
-- name: user
-  description: ''
+  - name: Employee
+    description: Operations on employees in the system
+  - name: User
+    description: User related operations in the System
+  - name: user
+    description: ''
