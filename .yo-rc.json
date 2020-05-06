@@ -1,7 +1,7 @@
 {
   "generator-openapi-repo": {
     "importExistingSpec": false,
-    "importedSpec": "swagger.yml",
+    "importedSpec": "swagger.json",
     "name": "MoE",
     "repo": ":moe-lk/apidoc",
     "splitSpec": false,
