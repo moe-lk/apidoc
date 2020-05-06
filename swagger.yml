@@ -63,25 +63,25 @@ definitions:
     properties:
       name:
         type: "string"
-        example: "visaka vidyalaya"
+        example: "ALUDENIYA M.V"
       code:
         type: "string"
-        example: "ABC1010"
+        example: "03002"
       address:
         type: "string"
-        example: "central"
+        example: "ALUDENIYA, KANDY"
       telephone:
         type: "string"
-        example: "kamani@gmail.com"
+        example: "0811234561"
       date_opened:
         type: "string"
-        example: "central"
+        example: "1934-01-01"
       date_closed:
         type: "string"
-        example: "XXXX-XXXX-XXXX"
+        example: "null"
       year_opened:
         type: "string"
-        example: "central"
+        example: "1934-01-01"
       year_closed:
         type: "string"
-        example: "XXXX-XXXX-XXXX"
+        example: "1934-01-01"
