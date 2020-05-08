@@ -86,36 +86,86 @@ definitions:
         type: "string"
         example: "1934-01-01"
 
-    Institution_students:
-      type: "object"
-      properties:
-        student_status_id:
-          type: "string"
-          example: "1"
-        student_id:
-          type: "string"
-          example: "1606"
-        education_grade_id:
-          type: "string"
-          example: "2"
-        academic_period_id:
-          type: "string"
-          example: "2"
-        start_date:
-          type: "string"
-          example: "2019-02-23"
-        start_year:
-          type: "string"
-          example: "2019"
-        end_date:
-          type: "string"
-          example: "null"
-        end_year:
-          type: "string"
-          example: "null"
-        institution_id:
-          type: "string"
-          example: "9979"
-        previous_institution_student_id:
-          type: "string"
-          example: "null"
+  Institution_students:
+    type: "object"
+    properties:
+      student_status_id:
+        type: "string"
+        example: "1"
+      student_id:
+        type: "string"
+        example: "1606"
+      education_grade_id:
+        type: "string"
+        example: "2"
+      academic_period_id:
+        type: "string"
+        example: "2"
+      start_date:
+        type: "string"
+        example: "2019-02-23"
+      start_year:
+        type: "string"
+        example: "2019"
+      end_date:
+        type: "string"
+        example: "null"
+      end_year:
+        type: "string"
+        example: "null"
+      institution_id:
+        type: "string"
+        example: "9979"
+      previous_institution_student_id:
+        type: "string"
+        example: "null"
+
+  institution_class_students:
+    type: "object"
+    properties:
+      student_id:
+        type: "string"
+        example: "1189"
+      institution_class_id:
+        type: "string"
+        example: "178"
+      education_grade_id:
+        type: "string"
+        example: "2"
+      academic_period_id:
+        type: "string"
+        example: "2"
+      Institution_id:
+        type: "string"
+        example: "9980"
+      student_status_id:
+        type: "string"
+        example: "1"
+
+  institution_subject:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        example: "sinhala"
+      no_of_seats:
+        type: "integer"
+        example: 40
+      total_male_students:
+        type: "integer"
+        example: 10
+      total_female_students:
+        type: "integer"
+        example: 30
+      institution_id:
+        type: "string"
+        example: "8909"
+      education_grade_id:
+        type: "string"
+        example: "1"
+      education_subject_id:
+        type: "string"
+        example: "2"
+      academic_period_id:
+        type: "string"
+        example: "1"
