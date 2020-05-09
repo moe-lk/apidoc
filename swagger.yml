@@ -191,3 +191,37 @@ definitions:
       education_grade_id:
         type: "string"
         example: "1"
+
+  institution_staff:
+    type: "object"
+    properties:
+      FTE:
+        type: "string"
+        example: "1.00"
+      start_date:
+        type: "string"
+        example: "2019-02-23"
+      start_year:
+        type: "string"
+        example: "2019"
+      end_date:
+        type: "string"
+        example: "null"
+      end_year:
+        type: "string"
+        example: "null"
+      staff_id:
+        type: "string"
+        example: "258"
+      staff_type_id:
+        type: "string"
+        example: "1"
+      staff_status_id:
+        type: "1"
+        example: "null"
+      institution_id:
+        type: "string"
+        example: "9970"
+      institution_position_id:
+        type: "string"
+        example: "10"
