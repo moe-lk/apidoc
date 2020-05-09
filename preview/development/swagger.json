@@ -1,0 +1,1436 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "CS-HRM",
+    "description": "This is the CS-HRM api server. Here you find all APIs related to the system. The api can be find on github",
+    "contact": {
+      "email": "nizarm@opensource.lk"
+    }
+  },
+  "host": "hrm.nemismoe.lgcc.gov.lk",
+  "basePath": "/moe/1.0.0",
+  "securityDefinitions": {},
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/employees": {
+      "post": {
+        "description": "This can only be done by the logged in user with permission for create employees.",
+        "summary": "CreateanEmployee",
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "EmployeePost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "Created user object",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/employees/{id}": {
+      "get": {
+        "description": "list of users with given page as pagination",
+        "summary": "listofuserswithgivenpageaspagination",
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "EmployeeGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "default": 1,
+            "type": "integer",
+            "description": "The page id should be provided"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/employee/createWithArray": {
+      "post": {
+        "description": "Creates list of Employees with given input array",
+        "summary": "CreateslistofEmployeeswithgiveninputarray",
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "EmployeeCreateWithArrayPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "List of user object",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/employee/list/{pageId}": {
+      "get": {
+        "description": "list of users with given page as pagination",
+        "summary": "listofuserswithgivenpageaspagination",
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "EmployeeListByPageIdGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pageId",
+            "in": "path",
+            "required": true,
+            "default": 1,
+            "type": "integer",
+            "description": "The page id should be provided"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Personal_Details"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/employee/employeeAttachments": {
+      "post": {
+        "description": "uploads Employee related files",
+        "summary": "uploadsEmployeerelatedfiles",
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "EmployeeEmployeeAttachmentsPost",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "additionalMetadata",
+            "in": "formData",
+            "required": false,
+            "type": "string",
+            "description": "Additional data to pass to server"
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "required": false,
+            "type": "file",
+            "format": "file",
+            "description": "file to upload"
+          },
+          {
+            "name": "userId",
+            "in": "formData",
+            "required": false,
+            "type": "string",
+            "description": "Employee id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Read Employee related files",
+        "summary": "ReadEmployeerelatedfiles",
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "EmployeeEmployeeAttachmentsGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Update Employee related files",
+        "summary": "UpdateEmployeerelatedfiles",
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "EmployeeEmployeeAttachmentsPut",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "additionalMetadata",
+            "in": "formData",
+            "required": false,
+            "type": "string",
+            "description": "Additional data to pass to server"
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "required": false,
+            "type": "file",
+            "format": "file",
+            "description": "file to upload"
+          },
+          {
+            "name": "userId",
+            "in": "formData",
+            "required": false,
+            "type": "string",
+            "description": "Employee id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Update Employee related files",
+        "summary": "UpdateEmployeerelatedfiles",
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "EmployeeEmployeeAttachmentsDelete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "fileInfo",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      }
+    },
+    "/employee/statusUpdate": {
+      "post": {
+        "description": "Activate and deactivate an Employee",
+        "summary": "Statusupdate",
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "EmployeeStatusUpdatePost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "Status update user object",
+            "schema": {
+              "$ref": "#/definitions/EmployeeStatusUpdateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/employee/approveReject": {
+      "post": {
+        "description": "Activate and deactivate an Employee",
+        "summary": "Statusupdate1",
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "EmployeeApproveRejectPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "Status update user object",
+            "schema": {
+              "$ref": "#/definitions/EmployeeApproveRejectRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/employee/generalService": {
+      "put": {
+        "description": "Update the Employee ggeneral service informations",
+        "summary": "UpdategeneralServiceinfo",
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "EmployeeGeneralServicePut",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "Updated General Service object",
+            "schema": {
+              "$ref": "#/definitions/General_Service"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "400": {
+            "description": "Invalid user supplied",
+            "schema": {}
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/user/register": {
+      "post": {
+        "description": "This can only be done by anyone with IDM-Gov",
+        "summary": "Registerauser",
+        "tags": [
+          "user"
+        ],
+        "operationId": "UserRegisterPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "Updated user object",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "400": {
+            "description": "Invalid user supplied",
+            "schema": {}
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/user": {
+      "get": {
+        "description": "Get user by user name",
+        "summary": "Getuserbyusername",
+        "tags": [
+          "user"
+        ],
+        "operationId": "UserGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "400": {
+            "description": "Invalid username supplied",
+            "schema": {}
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {}
+          }
+        }
+      },
+      "put": {
+        "description": "This can only be done by the logged in user.",
+        "summary": "Updateduser",
+        "tags": [
+          "user"
+        ],
+        "operationId": "UserPut",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "Updated user object",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "400": {
+            "description": "Invalid user supplied",
+            "schema": {}
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {}
+          }
+        }
+      },
+      "delete": {
+        "description": "This can only be done by the logged in user.",
+        "summary": "Deleteuser",
+        "tags": [
+          "user"
+        ],
+        "operationId": "UserDelete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "400": {
+            "description": "Invalid username supplied",
+            "schema": {}
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "description": "Logs user into the system",
+        "summary": "Logsuserintothesystem",
+        "tags": [
+          "user"
+        ],
+        "operationId": "UserLoginPost",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "The user name for login"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "The password for login in clear text"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Invalid username/password supplied",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/user/logout": {
+      "get": {
+        "description": "Logs out current logged in user session",
+        "summary": "Logsoutcurrentloggedinusersession",
+        "tags": [
+          "user"
+        ],
+        "operationId": "UserLogoutGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/user/uploadpic/{userId}": {
+      "post": {
+        "description": "uploads an image",
+        "summary": "uploadsanimage",
+        "tags": [
+          "user"
+        ],
+        "operationId": "UserUploadpicByUserIdPost",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "exclusiveMaximum": false,
+            "exclusiveMinimum": false,
+            "description": "ID of user to update"
+          },
+          {
+            "name": "additionalMetadata",
+            "in": "formData",
+            "required": false,
+            "type": "string",
+            "description": "Additional data to pass to server"
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "required": false,
+            "type": "file",
+            "format": "file",
+            "description": "file to upload"
+          },
+          {
+            "name": "userId",
+            "in": "formData",
+            "required": false,
+            "type": "string",
+            "description": "Employee id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "title": "User",
+      "type": "object",
+      "properties": {
+        "Account_Details": {
+          "$ref": "#/definitions/Account_Details"
+        },
+        "Personal_Details": {
+          "$ref": "#/definitions/Personal_Details"
+        },
+        "Permanent_Contact_Details": {
+          "$ref": "#/definitions/Contact_Details"
+        },
+        "Temparary_Contact_Details": {
+          "$ref": "#/definitions/Contact_Details"
+        },
+        "General_Service": {
+          "$ref": "#/definitions/General_Service"
+        },
+        "Current_Service": {
+          "$ref": "#/definitions/Current_Service"
+        },
+        "Qualifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Qualifications"
+          }
+        }
+      }
+    },
+    "Account_Details": {
+      "title": "Account_Details",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "user_name": {
+          "description": "Username of the Employee for login to the HR system",
+          "example": "user1",
+          "type": "string"
+        },
+        "name": {
+          "example": "Nizar",
+          "type": "string"
+        },
+        "passwd": {
+          "description": "Password of the Employee for login to the HR system",
+          "example": 123456,
+          "type": "string"
+        },
+        "level": {
+          "type": "string"
+        },
+        "workplace_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sub_location_id": {
+          "example": 2,
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20,
+          "format": "int32"
+        },
+        "person_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Personal_Details": {
+      "title": "Personal_Details",
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "NIC": {
+          "example": "123456789V",
+          "type": "string"
+        },
+        "title": {
+          "$ref": "#/definitions/Title"
+        },
+        "f_name": {
+          "description": "First Name of the Employee",
+          "example": "Rathnayaka Mudalige",
+          "type": "string"
+        },
+        "l_name": {
+          "description": "Last Name of the Employee",
+          "example": "Rathnayaka",
+          "type": "string"
+        },
+        "m_name": {
+          "description": "Middle Name of the Employe",
+          "example": "Pajapathi Dananjana",
+          "type": "string"
+        },
+        "in_name": {
+          "description": "Name with Initials  of the Employee",
+          "example": "R.M.P.M.Rathnayaka",
+          "type": "string"
+        },
+        "si_in_name": {
+          "description": "Fullname  of the Employee in Sinhala",
+          "example": "ආර්. එම්. පී. එම්. රත්නායක",
+          "type": "string"
+        },
+        "ta_in_name": {
+          "description": "Fullname  of the Employee in Tamil",
+          "example": "ஆர்.எம்.பி.எம்.ரத்நாயக்க",
+          "type": "string"
+        },
+        "dob": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ethinicity": {
+          "$ref": "#/definitions/Ethinicity"
+        },
+        "gender": {
+          "$ref": "#/definitions/Gender"
+        },
+        "civil_status": {
+          "$ref": "#/definitions/CivilStatus"
+        },
+        "f_appoint_date": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "f_appoint_type": {
+          "$ref": "#/definitions/FAppointType"
+        },
+        "active": {
+          "$ref": "#/definitions/Active"
+        },
+        "profile_pic": {
+          "type": "string"
+        },
+        "approved": {
+          "$ref": "#/definitions/Approved"
+        }
+      },
+      "required": [
+        "NIC",
+        "title",
+        "f_name",
+        "l_name",
+        "in_name",
+        "dob",
+        "ethinicity",
+        "gender",
+        "civil_status"
+      ]
+    },
+    "Contact_Details": {
+      "title": "Contact_Details",
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "address_type": {
+          "$ref": "#/definitions/AddressType"
+        },
+        "address_1": {
+          "example": "50/A/11 6th lane",
+          "type": "string"
+        },
+        "address_2": {
+          "example": "Hansagiri Road",
+          "type": "string"
+        },
+        "address_3": {
+          "example": "Gampaha",
+          "type": "string"
+        },
+        "postal_code": {
+          "example": 8600,
+          "type": "integer",
+          "format": "int32"
+        },
+        "mobile": {
+          "example": 1234567890,
+          "type": "integer",
+          "format": "int32"
+        },
+        "telephone": {
+          "example": 1234567890,
+          "type": "integer",
+          "format": "int32"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address_type",
+        "address_1",
+        "address_2",
+        "postal_code",
+        "mobile",
+        "email"
+      ]
+    },
+    "General_Service": {
+      "title": "General_Service",
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "date_join": {
+          "example": "2016-01-12T00:00:00.000Z",
+          "type": "string",
+          "format": "date"
+        },
+        "way_join": {
+          "$ref": "#/definitions/WayJoin"
+        },
+        "cadre": {
+          "$ref": "#/definitions/Cadre"
+        },
+        "grade_join": {
+          "$ref": "#/definitions/GradeJoin"
+        },
+        "entrance_exam_rank": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "grade": {
+          "$ref": "#/definitions/Grade"
+        },
+        "subject": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "medium": {
+          "$ref": "#/definitions/Medium"
+        },
+        "confirm": {
+          "$ref": "#/definitions/Confirm"
+        },
+        "confirm_date": {
+          "example": "2012-12-12T00:00:00.000Z",
+          "type": "string",
+          "format": "date"
+        },
+        "promotion_date": {
+          "example": "2013-12-12T00:00:00.000Z",
+          "type": "string",
+          "format": "date"
+        },
+        "f_appoint_date": {
+          "example": "2011-12-12T00:00:00.000Z",
+          "type": "string",
+          "format": "date"
+        },
+        "eb_1_pass": {
+          "example": "2013-12-12T00:00:00.000Z",
+          "type": "string",
+          "format": "date"
+        },
+        "eb_2_pass": {
+          "example": "2014-12-12T00:00:00.000Z",
+          "type": "string",
+          "format": "date"
+        },
+        "eb_3_pass": {
+          "example": "2015-12-12T00:00:00.000Z",
+          "type": "string",
+          "format": "date"
+        },
+        "pg_dip_pass": {
+          "example": "2009-10-12T00:00:00.000Z",
+          "type": "string",
+          "format": "date"
+        },
+        "pg_deg_pass": {
+          "example": "2010-08-12T00:00:00.000Z",
+          "type": "string",
+          "format": "date"
+        },
+        "cb_1_date": {
+          "example": "2014-08-12T00:00:00.000Z",
+          "type": "string",
+          "format": "date"
+        },
+        "cb_2_date": {
+          "example": "2015-08-12T00:00:00.000Z",
+          "type": "string",
+          "format": "date"
+        },
+        "cb_3_date": {
+          "example": "2014-08-12T00:00:00.000Z",
+          "type": "string",
+          "format": "date"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        },
+        "deactivate_type_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "deactivate_date": {
+          "example": "2018-08-12T00:00:00.000Z",
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "date_join",
+        "way_join",
+        "cadre",
+        "grade_join"
+      ]
+    },
+    "Current_Service": {
+      "title": "Current_Service",
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "person_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "service_sector": {
+          "$ref": "#/definitions/ServiceSector"
+        },
+        "service_mode": {
+          "$ref": "#/definitions/ServiceMode"
+        },
+        "service_status": {
+          "$ref": "#/definitions/ServiceStatus"
+        },
+        "work_place_id": {
+          "$ref": "#/definitions/WorkPlaceId"
+        },
+        "sub_location_id": {
+          "example": 2,
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20,
+          "format": "int32"
+        },
+        "work_branch_id": {
+          "$ref": "#/definitions/WorkBranchId"
+        },
+        "work_division_id": {
+          "$ref": "#/definitions/WorkDivisionId"
+        },
+        "designation_id": {
+          "$ref": "#/definitions/DesignationId"
+        },
+        "appoint_date": {
+          "example": "2012-05-08T00:00:00.000Z",
+          "type": "string",
+          "format": "date"
+        },
+        "duty_date": {
+          "example": "2012-05-08T00:00:00.000Z",
+          "type": "string",
+          "format": "date"
+        },
+        "duty_date_terminate": {
+          "example": "2011-05-08T00:00:00.000Z",
+          "type": "string",
+          "format": "date"
+        },
+        "off_letter_no": {
+          "example": "ED/4/58/25/3/G/",
+          "type": "string"
+        },
+        "grade": {
+          "$ref": "#/definitions/Grade"
+        },
+        "date_promoted": {
+          "example": "2011-05-08T00:00:00.000Z",
+          "type": "string",
+          "format": "date"
+        },
+        "salary_drawned": {
+          "type": "string"
+        },
+        "barcode": {
+          "example": 54456445664,
+          "type": "integer",
+          "format": "int64"
+        },
+        "user_updated": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "service_mode"
+      ]
+    },
+    "Qualifications": {
+      "title": "Qualifications",
+      "type": "object",
+      "properties": {
+        "ID": {
+          "example": 22,
+          "type": "integer",
+          "format": "int32"
+        },
+        "person_id": {
+          "example": 25,
+          "type": "integer",
+          "format": "int32"
+        },
+        "qualification_type_id": {
+          "$ref": "#/definitions/QualificationTypeId"
+        },
+        "qualification_id": {
+          "$ref": "#/definitions/QualificationId"
+        }
+      }
+    },
+    "ApiResponse": {
+      "title": "ApiResponse",
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "Active": {
+      "title": "Active",
+      "example": 1,
+      "type": "integer",
+      "format": "int32",
+      "enum": [
+        1,
+        0
+      ]
+    },
+    "AddressType": {
+      "title": "AddressType",
+      "example": "Permanant",
+      "type": "string",
+      "enum": [
+        "Permanant",
+        "Temperary"
+      ]
+    },
+    "Approved": {
+      "title": "Approved",
+      "example": 0,
+      "type": "integer",
+      "format": "int32",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "Cadre": {
+      "title": "Cadre",
+      "example": "General Cadre",
+      "type": "string",
+      "enum": [
+        "General Cadre",
+        "Special Cadre",
+        "Not Specified"
+      ]
+    },
+    "CivilStatus": {
+      "title": "CivilStatus",
+      "example": "Married",
+      "type": "string",
+      "enum": [
+        "Married",
+        "Single",
+        "Divorced",
+        "Widowed"
+      ]
+    },
+    "Confirm": {
+      "title": "Confirm",
+      "example": "Yes",
+      "type": "string",
+      "enum": [
+        "Yes",
+        "No"
+      ]
+    },
+    "DesignationId": {
+      "title": "DesignationId",
+      "example": "{\n\n  \"value\": 1,\n\n  \"description\": \"Additional Secretary of the Ministry of Education\"\n\n}",
+      "type": "string",
+      "enum": [
+        "{\n\n  \"value\": 1,\n\n  \"description\": \"Additional Secretary of the Ministry of Education\"\n\n}",
+        "{\n\n  \"value\": 2,\n\n  \"description\": \"Commissioner General of Examinations\"\n\n}",
+        "{\n\n  \"value\": 3,\n\n  \"description\": \"Commissioner General of Educational Publications\"\n\n}",
+        "{\n\n  \"value\": 4,\n\n  \"description\": \"Chief Commissioner (Teacher Education)\"\n\n}",
+        "{\n\n  \"value\": 5,\n\n  \"description\": \"Director of Education\"\n\n}",
+        "{\n\n  \"value\": 6,\n\n  \"description\": \"Deputy Director of Education\"\n\n}",
+        "{\n\n  \"value\": 7,\n\n  \"description\": \"Assistant Director of Education\"\n\n}",
+        "{\n\n  \"value\": 8,\n\n  \"description\": \"Additional Director of Education\"\n\n}",
+        "{\n\n  \"value\": 9,\n\n  \"description\": \"Commissioner of Examinations\"\n\n}",
+        "{\n\n  \"value\": 10,\n\n  \"description\": \"Deputy Commissioner of Examinations\"\n\n}",
+        "{\n\n  \"value\": 11,\n\n  \"description\": \"Assistant Commissioner of Examinations\"\n\n}",
+        "{\n\n  \"value\": 12,\n\n  \"description\": \"Commissioner of Educational Publications\"\n\n}",
+        "{\n\n  \"value\": 13,\n\n  \"description\": \"Commissioner of Educational Publications\"\n\n}",
+        "{\n\n  \"value\": 14,\n\n  \"description\": \"Assistant Commissioner of Educational Publications\"\n\n}",
+        "{\n\n  \"value\": 15,\n\n  \"description\": \"Principal\"\n\n}",
+        "{\n\n  \"value\": 16,\n\n  \"description\": \"Deputy Principal\"\n\n}"
+      ]
+    },
+    "EmployeeApproveRejectRequest": {
+      "title": "EmployeeApproveRejectRequest",
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "approved": {
+          "$ref": "#/definitions/Approved"
+        }
+      }
+    },
+    "EmployeeStatusUpdateRequest": {
+      "title": "EmployeeStatusUpdateRequest",
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "service_status": {
+          "$ref": "#/definitions/ServiceStatus1"
+        }
+      }
+    },
+    "Ethinicity": {
+      "title": "Ethinicity",
+      "example": "Sinhala",
+      "type": "string",
+      "enum": [
+        "Sinhala",
+        "Sri Lankan Tamil",
+        "Indian Tamil",
+        "Muslim",
+        "Burger",
+        "Malay",
+        "Other"
+      ]
+    },
+    "FAppointType": {
+      "title": "FAppointType",
+      "example": "Permanant",
+      "type": "string",
+      "enum": [
+        "Permanant",
+        "Temperary"
+      ]
+    },
+    "Gender": {
+      "title": "Gender",
+      "example": "Male",
+      "type": "string",
+      "enum": [
+        "Male",
+        "Female"
+      ]
+    },
+    "Grade": {
+      "title": "Grade",
+      "example": "Special",
+      "type": "string",
+      "enum": [
+        "Special",
+        "Grade I",
+        "Grade II",
+        "Grade III"
+      ]
+    },
+    "GradeJoin": {
+      "title": "GradeJoin",
+      "example": "Special",
+      "type": "string",
+      "enum": [
+        "Special",
+        "Grade I",
+        "Grade II",
+        "Grade III"
+      ]
+    },
+    "Medium": {
+      "title": "Medium",
+      "example": "Sinhala",
+      "type": "string",
+      "enum": [
+        "Sinhala",
+        "Tamil",
+        "English"
+      ]
+    },
+    "QualificationId": {
+      "title": "QualificationId",
+      "example": "{\n\n  \"value\": 1,\n\n  \"description\": \"G.C.E. O/L English\"\n\n}",
+      "type": "string",
+      "enum": [
+        "{\n\n  \"value\": 1,\n\n  \"description\": \"G.C.E. O/L English\"\n\n}",
+        "{\n\n  \"value\": 2,\n\n  \"description\": \"G.C.E. O/L Tamil\"\n\n}",
+        "{\n\n  \"value\": 3,\n\n  \"description\": \"Diploma\"\n\n}",
+        "{\n\n  \"value\": 4,\n\n  \"description\": \"Degree\"\n\n}"
+      ]
+    },
+    "QualificationTypeId": {
+      "title": "QualificationTypeId",
+      "example": "{\n\n  \"value\": 1,\n\n  \"description\": \"Academic\"\n\n}",
+      "type": "string",
+      "enum": [
+        "{\n\n  \"value\": 1,\n\n  \"description\": \"Academic\"\n\n}",
+        "{\n\n  \"value\": 2,\n\n  \"description\": \"Professional\"\n\n}"
+      ]
+    },
+    "ServiceMode": {
+      "title": "ServiceMode",
+      "example": "First appointment",
+      "type": "string",
+      "enum": [
+        "First appointment",
+        "Promotion",
+        "Transfer",
+        "Promotion / Transfer",
+        "Attachment",
+        "Secondment",
+        "Releasement",
+        "Acting Duty",
+        "Performing Duty",
+        "Placement"
+      ]
+    },
+    "ServiceSector": {
+      "title": "ServiceSector",
+      "example": "sleas",
+      "type": "string",
+      "enum": [
+        "sleas",
+        "sltes",
+        "slps",
+        "slts",
+        "cs",
+        "ncs"
+      ]
+    },
+    "ServiceStatus": {
+      "title": "ServiceStatus",
+      "example": "active",
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive"
+      ]
+    },
+    "ServiceStatus1": {
+      "title": "ServiceStatus1",
+      "example": "Active",
+      "type": "string",
+      "enum": [
+        "Active",
+        "Inactive"
+      ]
+    },
+    "Status": {
+      "title": "Status",
+      "example": "Active",
+      "type": "string",
+      "enum": [
+        "Active",
+        "Inactive"
+      ]
+    },
+    "Title": {
+      "title": "Title",
+      "example": "Rev",
+      "type": "string",
+      "enum": [
+        "Rev",
+        "Mr",
+        "Mrs",
+        "Rev. Dr.",
+        "Dr",
+        "Dr. (Ms)",
+        "Dr. (Mrs)"
+      ]
+    },
+    "WayJoin": {
+      "title": "WayJoin",
+      "description": "Way of join to MoE",
+      "example": "Open",
+      "type": "string",
+      "enum": [
+        "Open",
+        "Limited",
+        "Merit",
+        "Super Numeral (PVC)"
+      ]
+    },
+    "WorkBranchId": {
+      "title": "WorkBranchId",
+      "example": "{\n\n  \"value\": 1,\n\n  \"description\": \"National Operation Room\"\n\n}",
+      "type": "string",
+      "enum": [
+        "{\n\n  \"value\": 1,\n\n  \"description\": \"National Operation Room\"\n\n}"
+      ]
+    },
+    "WorkDivisionId": {
+      "title": "WorkDivisionId",
+      "example": "{\n\n  \"value\": 1,\n\n  \"description\": \"Educational Quality Development\"\n\n}",
+      "type": "string",
+      "enum": [
+        "{\n\n  \"value\": 1,\n\n  \"description\": \"Educational Quality Development\"\n\n}",
+        "{\n\n  \"value\": 2,\n\n  \"description\": \"Policy Planning & Performance Review\"\n\n}",
+        "{\n\n  \"value\": 3,\n\n  \"description\": \"Education Services Establishment\"\n\n}",
+        "{\n\n  \"value\": 4,\n\n  \"description\": \"Procurement & Construction\"\n\n}",
+        "{\n\n  \"value\": 5,\n\n  \"description\": \"School Affairs\"\n\n}",
+        "{\n\n  \"value\": 6,\n\n  \"description\": \"Administration and Finance\"\n\n}",
+        "{\n\n  \"value\": 7,\n\n  \"description\": \"Languages, Humanities & Social Sciences\"\n\n}",
+        "{\n\n  \"value\": 8,\n\n  \"description\": \"Science & Technology\"\n\n}",
+        "{\n\n  \"value\": 9,\n\n  \"description\": \"Education Leadership, Development Management\"\n\n}",
+        "{\n\n  \"value\": 10,\n\n  \"description\": \"Alternative Education & Teacher Education\"\n\n}",
+        "{\n\n  \"value\": 11,\n\n  \"description\": \"Administration, Finance & Support Services\"\n\n}",
+        "{\n\n  \"value\": 12,\n\n  \"description\": \"Production & Distribution\"\n\n}",
+        "{\n\n  \"value\": 12,\n\n  \"description\": \"Development\"\n\n}",
+        "{\n\n  \"value\": 14,\n\n  \"description\": \"School Examination Testing Service\"\n\n}",
+        "{\n\n  \"value\": 15,\n\n  \"description\": \"Agency Examination Testing Service\"\n\n}",
+        "{\n\n  \"value\": 16,\n\n  \"description\": \"Orientation Programme\"\n\n}",
+        "{\n\n  \"value\": 17,\n\n  \"description\": \"Education Services Establishment\"\n\n}"
+      ]
+    },
+    "WorkPlaceId": {
+      "title": "WorkPlaceId",
+      "example": "{\n\n  \"value\": 1,\n\n  \"description\": \"Ministry of Education\"\n\n}",
+      "type": "string",
+      "enum": [
+        "{\n\n  \"value\": 1,\n\n  \"description\": \"Ministry of Education\"\n\n}",
+        "{\n\n  \"value\": 2,\n\n  \"description\": \"Department of Examinations\"\n\n}",
+        "{\n\n  \"value\": 3,\n\n  \"description\": \"Department of Education Publication\"\n\n}",
+        "{\n\n  \"value\": 4,\n\n  \"description\": \"National Institute of Education\"\n\n}",
+        "{\n\n  \"value\": 5,\n\n  \"description\": \"Provincial Department of Education\"\n\n}",
+        "{\n\n  \"value\": 6,\n\n  \"description\": \"Provincial Ministry of Education\"\n\n}",
+        "{\n\n  \"value\": 7,\n\n  \"description\": \"Zonal Education Office\"\n\n}",
+        "{\n\n  \"value\": 8,\n\n  \"description\": \"Divisional Education Office\"\n\n}",
+        "{\n\n  \"value\": 9,\n\n  \"description\": \"National College of Education\"\n\n}",
+        "{\n\n  \"value\": 10,\n\n  \"description\": \"Teacher Training College\"\n\n}",
+        "{\n\n  \"value\": 11,\n\n  \"description\": \"Teacher Centers\"\n\n}",
+        "{\n\n  \"value\": 12,\n\n  \"description\": \"Provincial ICT Education Centre (PICTEC)\"\n\n}",
+        "{\n\n  \"value\": 13,\n\n  \"description\": \"Zonal ICT Education Centre (ZICTEC/CRC)\"\n\n}",
+        "{\n\n  \"value\": 14,\n\n  \"description\": \"Education Resource Centre\"\n\n}",
+        "{\n\n  \"value\": 15,\n\n  \"description\": \"Provincial Education Development Center\"\n\n}",
+        "{\n\n  \"value\": 16,\n\n  \"description\": \"National School\"\n\n}",
+        "{\n\n  \"value\": 17,\n\n  \"description\": \"Provincial School\"\n\n}",
+        "{\n\n  \"value\": 18,\n\n  \"description\": \"Provinces\"\n\n}"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "Employee",
+      "description": "Operations on employees in the system"
+    },
+    {
+      "name": "User",
+      "description": "User related operations in the System"
+    },
+    {
+      "name": "user",
+      "description": ""
+    }
+  ]
+}
