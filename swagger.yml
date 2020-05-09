@@ -169,3 +169,25 @@ definitions:
       academic_period_id:
         type: "string"
         example: "1"
+
+  institution_subject_students:
+    type: "object"
+    properties:
+      institution_class_id:
+        type: "string"
+        example: "6729"
+      student_id:
+        type: "string"
+        example: "10"
+      institution_id:
+        type: "string"
+        example: "9978"
+      academic_period_id:
+        type: "string"
+        example: "2"
+      education_subject_id:
+        type: "string"
+        example: "1"
+      education_grade_id:
+        type: "string"
+        example: "1"
