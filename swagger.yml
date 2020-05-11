@@ -16,6 +16,8 @@ tags:
 paths:
   /student/{sid}:
     get:
+      tags:
+        - "Student"
       summary: "Find student by ID"
       description: "Returns a single student"
       operationId: "getStudentById"
