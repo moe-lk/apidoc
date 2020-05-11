@@ -8,7 +8,11 @@ info:
 basePath: "/v2"
 schemes:
   - "https"
-
+tags:
+  - name: "Student"
+    description: "Information about Students"
+  - name: "Institute"
+    description: "Information about Institutions"
 paths:
   /student/{sid}:
     get:
